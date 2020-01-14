@@ -1,0 +1,20 @@
+<head>
+  <script src="../models/car.js"></script>
+  <script src="../models/wheel.js"></script>
+  <script src="../controllers/controller.js"></script>
+</head>
+<body>
+  <div id="container">
+    <h1 id="carInfo">Exercici Vehicles</h1>
+    <form>
+      <label>Plate</label> <input type="string" id="plate" />
+
+      <label>Brand</label> <input type="string" id="brand" />
+
+      <label>Color</label> <input type="string" id="color" />
+
+      <br />
+      <button onclick="createCar(plate, brand, color)">Create car</button>
+    </form>
+  </div>
+</body>
