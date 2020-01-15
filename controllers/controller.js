@@ -1,8 +1,9 @@
 "use strict";
-function createCar(plate, brand, color) {
-    plate = document.getElementById("plate").value;
-    color = document.getElementById("color").value;
-    brand = document.getElementById("brand").value;
+function createCar() {
+    var plate = document.getElementById("plate").value;
+    var color = document.getElementById("color").value;
+    var brand = document.getElementById("brand").value;
+    var car = new Car(plate, color, brand);
     document.body.innerText =
         "PLATE: " + car.plate + " COLOR: " + car.color + " BRAND: " + car.brand;
 }
