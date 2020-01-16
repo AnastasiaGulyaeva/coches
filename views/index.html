@@ -1,20 +1,97 @@
+<!DOCTYPE html>
 <head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <script src="../models/car.js"></script>
   <script src="../models/wheel.js"></script>
   <script src="../controllers/controller.js"></script>
 </head>
-<body>
-  <div id="container">
-    <h1 id="carInfo">Exercici Vehicles</h1>
-    <form>
-      <label>Plate</label> <input type="string" id="plate" value="" />
+<body> 
+  <h1 class="text-center" id="carInfo">Exercici Vehicles</h1 >
 
-      <label>Brand</label> <input type="string" id="brand" value="" />
+<!-- таблица авто -->
 
-      <label>Color</label> <input type="string" id="color" value="" />
+    <div class="container" id="carForm">
+      <div class="form-row my-4">
 
-      <br />
-      <button onclick="createCar(plate, brand, color)">Create car</button>
-    </form>
+        <div class="col">
+          <label>Plate</label> <input class="form-control" type="string" id="plate"/>
+        </div>
+
+        <div class="col">
+          <label>Brand</label> <input class="form-control" type="string" id="brand"/>
+        </div>
+
+        <div class="col" >
+          <label>Color</label> <input class="form-control" type="string" id="color"/>
+        </div>
+      </div>
+      
+      <button
+        type="button"
+        class="btn btn-info"
+        onclick="createCar(plate, brand, color)">
+        Create car
+      </button>
+    
+    </div>
+    
+<!-- таблица колеса -->
+
+  <div id="wheelform" class="container d-none">
+
+      
+        <div class="form-row my-4">
+  
+          <div class="col-3">
+            <label>Marca Rueda 1</label> <input class="form-control"/>
+          </div>
+  
+          <div class="col-3">
+            <label>Diametro Rueda 1</label> <input class="form-control"/>
+          </div>
+  
+          <div class="col-3">
+            <label>Marca Rueda 2</label> <input class="form-control"/>
+          </div>
+
+          <div class="col-3">
+            <label>Diametro Rueda 2</label> <input class="form-control"/>
+          </div>
+
+          <div class="col-3">
+            <label>Marca Rueda 3</label> <input class="form-control"/>
+          </div>
+  
+          <div class="col-3">
+            <label>Diametro Rueda 3</label> <input class="form-control"/>
+          </div>
+  
+          <div class="col-3">
+            <label>Marca Rueda 4</label> <input class="form-control"/>
+          </div>
+
+          <div class="col-3">
+            <label>Diametro Rueda 4</label> <input class="form-control"/>
+          </div>
+        </div>
+
+          <button
+        type="button"
+        class="btn btn-info"
+        onclick="createWheel(diameter, brand)">
+        Add wheels
+      </button>   
+
   </div>
+
+<!-- вывод данных -->
+
+<div class="container my-4 text-center" id="infoCar">
+</div>
+
+<div class="container my-4 text-center" id="infoWheel">
+</div>
+
 </body>
+</html>
