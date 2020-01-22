@@ -1,5 +1,6 @@
 "use strict";
 var userCar;
+// добавить машину
 function createCar() {
     var plate = document.getElementById("plate").value;
     var expresion = /^[0-9]{4}[a-zA-Z]{3}$/;
@@ -21,12 +22,14 @@ function createCar() {
         return;
     }
 }
+// скрыть/показать анкету
 function showWheelForm() {
     var carForm = document.getElementById("carForm");
     var carWheel = document.getElementById("wheelform");
     carForm.classList.add("d-none");
     carWheel.classList.remove("d-none");
 }
+// добавить колеса
 function createWheel() {
     for (var i = 1; i < 5; i++) {
         var diameter = document.getElementById("diameter" + i)
@@ -39,7 +42,6 @@ function createWheel() {
         " WHEELS: " + JSON.stringify(userCar.wheels);
 }
 /*
-
 
 let plateSymbol: any = plate.split("");
 
