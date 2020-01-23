@@ -11,13 +11,13 @@ function createCar() {
 
     userCar = new Car(plate, color, brand);
 
-    (<HTMLInputElement>document.getElementById("infoCar")).innerText =
-      "PLATE: " +
-      userCar.plate +
-      " COLOR: " +
-      userCar.color +
-      " BRAND: " +
-      userCar.brand;
+    (<HTMLInputElement>document.getElementById("car")).innerText = "Car: ";
+    (<HTMLInputElement>document.getElementById("infoPlate")).innerText =
+      "Plate: " + userCar.plate;
+    (<HTMLInputElement>document.getElementById("infoColor")).innerText =
+      "Color: " + userCar.color;
+    (<HTMLInputElement>document.getElementById("infoBrand")).innerText =
+      "Brand: " + userCar.brand;
 
     showWheelForm();
   } else {
@@ -38,19 +38,75 @@ function showWheelForm() {
 // добавить колеса
 
 function createWheel() {
+  let error = 0;
+
   for (let i = 1; i < 5; i++) {
     let diameter = (<HTMLInputElement>document.getElementById("diameter" + i))
       .valueAsNumber;
-    let brand = (<HTMLInputElement>document.getElementById("brand" + i)).value;
-    console.log(diameter + brand);
-    userCar.addWheel(new Wheel(diameter, brand));
+    if (!(diameter > 0.4 && diameter < 2)) {
+      alert(
+        "El diamertro de la rueda " +
+          i +
+          " tiene que ser mas que 0.4 y menos que 2."
+      );
+      error++;
+    }
   }
 
-  (<HTMLInputElement>document.getElementById("infoWheel")).innerText =
-    " WHEELS: " + JSON.stringify(userCar.wheels);
+  if (error == 0) {
+    for (let i = 1; i < 5; i++) {
+      let diameter = (<HTMLInputElement>document.getElementById("diameter" + i))
+        .valueAsNumber;
+      let brand = (<HTMLInputElement>document.getElementById("brand" + i))
+        .value;
+
+      userCar.addWheel(new Wheel(diameter, brand));
+    }
+  }
+
+  // imprimir los resultados de wheels
+
+  (<HTMLInputElement>document.getElementById("wheel")).innerText = "Wheels: ";
+
+  (<HTMLInputElement>document.getElementById("infoWheel1")).innerText =
+    "Wheel 1 : Brand: " +
+    userCar.wheels[0].brand +
+    " Diameter: " +
+    userCar.wheels[0].diameter;
+
+  (<HTMLInputElement>document.getElementById("infoWheel2")).innerText =
+    "Wheel 2 : Brand: " +
+    userCar.wheels[1].brand +
+    " Diameter: " +
+    userCar.wheels[1].diameter;
+
+  (<HTMLInputElement>document.getElementById("infoWheel3")).innerText =
+    "Wheel 3 : Brand: " +
+    userCar.wheels[2].brand +
+    " Diameter: " +
+    userCar.wheels[2].diameter;
+
+  (<HTMLInputElement>document.getElementById("infoWheel4")).innerText =
+    "Wheel 4 : Brand: " +
+    userCar.wheels[3].brand +
+    " Diameter: " +
+    userCar.wheels[3].diameter;
 }
 
+// функция для проверки
+
+// function validateDiameter (a: number){
+//   if (a > 0.4 && a < 2) {
+//   } else {
+//     alert ("Error");
+//     error++;
+//   }
+
+// }
+
 /* 
+
+
 
 let plateSymbol: any = plate.split("");
 
@@ -99,5 +155,39 @@ _______________ работает, но усложнила.
     }
   }
 }
+
+
+________ посл вариант
+
+let count = 0;
+
+  for (let i = 1; i < 5; i++) {
+    let diameter = (<HTMLInputElement>document.getElementById("diameter" + i))
+      .valueAsNumber;
+    let brand = (<HTMLInputElement>document.getElementById("brand" + i)).value;
+
+    if (diameter > 0.4 && diameter < 2) {
+      count++;
+        if(count == 4) {
+      userCar.addWheel(new Wheel(diameter, brand)); // [i] para subir los 4 ruedas?
+    }
+
+      (<HTMLInputElement>document.getElementById("infoWheel")).innerText =
+        "WHEELS: " + JSON.stringify(userCar.wheels);
+    } else {
+      alert(`El diametro de la rueda ${i} no es correcto.`);
+    }
+  }
+  (<HTMLInputElement>document.getElementById("infoWheel")).innerText =
+        "WHEELS: " + JSON.stringify(userCar.wheels);
+
+        funcion validar (diameter:number) {
+         if (diameter > 0.4 && diameter < 2) {
+           return true;
+         } else {
+           return false;
+         }
+
+        }
 
 */

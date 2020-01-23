@@ -5,13 +5,20 @@
   <script src="../models/car.js"></script>
   <script src="../models/wheel.js"></script>
   <script src="../controllers/controller.js"></script>
+  <style type="text/css">
+  
+  input:invalid {
+    border-color: rgb(134, 43, 6);
+  }
+ 
+  </style>
 </head>
-<body> 
+<body class="container"> 
   <h1 class="text-center" id="carInfo">Exercici Vehicles</h1 >
 
 <!-- таблица авто -->
 
-    <div class="container" id="carForm">
+    <div id="carForm">
       <div class="form-row my-4">
 
         <div class="col">
@@ -19,11 +26,11 @@
         </div>
 
         <div class="col">
-          <label>Brand</label> <input class="form-control" type="string" id="brand" value="SEAT"/>
+          <label>Brand</label> <input class="form-control" type="string" id="brand" value="VOLKSWAGEN"/>
         </div>
 
         <div class="col" >
-          <label>Color</label> <input class="form-control" type="string" id="color" value="Blanco"/>
+          <label>Color</label> <input class="form-control" type="string" id="color" value="BLANCO"/>
         </div>
       </div>
       
@@ -44,53 +51,94 @@
         <div class="form-row my-4">
   
           <div class="col-3">
-            <label>Marca Rueda 1</label> <input class="form-control" id="brand1" value="W" />
+            <label>Marca Rueda 1</label> <input class="form-control" id="brand1" value="VW" />
           </div>
   
           <div class="col-3">
-            <label>Diametro Rueda 1</label> <input class="form-control" id="diameter1" type="number" value="2" />
+            <label>Diametro Rueda 1</label> <input class="form-control" id="diameter1" type="number" value="1" min="0.4" max="2" step="0.1" />
           </div>
   
           <div class="col-3">
-            <label>Marca Rueda 2</label> <input class="form-control" id="brand2" value="W"/>
+            <label>Marca Rueda 2</label> <input class="form-control" id="brand2" value="VW"/>
           </div>
 
           <div class="col-3">
-            <label>Diametro Rueda 2</label> <input class="form-control" id="diameter2" type="number" value="2"/>
+            <label>Diametro Rueda 2</label> <input class="form-control" id="diameter2" type="number" value="1" min="0.4" max="2" step="0.1"/>
           </div>
 
           <div class="col-3">
-            <label>Marca Rueda 3</label> <input class="form-control" id="brand3" value="W"/>
+            <label>Marca Rueda 3</label> <input class="form-control" id="brand3" value="VW"/>
           </div>
   
           <div class="col-3">
-            <label>Diametro Rueda 3</label> <input class="form-control" id="diameter3" type="number" value="2"/>
+            <label>Diametro Rueda 3</label> <input class="form-control" id="diameter3" type="number" value="1" min="0.4" max="2" step="0.1"/>
           </div>
   
           <div class="col-3">
-            <label>Marca Rueda 4</label> <input class="form-control" id="brand4" value="W"/>
+            <label>Marca Rueda 4</label> <input class="form-control" id="brand4" value="VW"/>
           </div>
 
           <div class="col-3">
-            <label>Diametro Rueda 4</label> <input class="form-control" id="diameter4" type="number" value="2"/>
+            <label>Diametro Rueda 4</label> <input class="form-control" id="diameter4" type="number" value="1" min="0.4" max="2" step="0.1"/>
           </div>
         </div>
 
-          <button
+        <button
         type="button"
         class="btn btn-info"
         onclick="createWheel()">
         Add wheels
-      </button>   
+        </button>   
 
   </div>
 
 <!-- вывод данных -->
+<div class="card my-4">
+ <div class="card-header font-weight-bold h4" id="car">
+ </div>
+  <div class="card-body">
+    <div class="row">
 
-<div class="container my-4 text-center" id="infoCar">
-</div>
+      <div class="col-3">
+        <p class="card-text" id="infoPlate"></p>
+      </div>
 
-<div class="container my-4 text-center" id="infoWheel">
+      <div class="col-3">
+        <p class="card-text" id="infoColor"></p>
+      </div>
+
+      <div class="col-3">
+        <p class="card-text" id="infoBrand"></p>
+      </div>
+
+    </div>
+  </div> 
+</div> 
+
+<div class="card my-4">
+  <div class="card-header font-weight-bold h4" id="wheel">
+  </div>
+    <div class="card-body">
+      <div class="row">
+
+        <div class="col-3">
+          <p class="card-text" id="infoWheel1"></p>
+        </div>
+  
+        <div class="col-3">
+          <p class="card-text" id="infoWheel2"></p>
+        </div>
+  
+        <div class="col-3">
+          <p class="card-text" id="infoWheel3"></p>
+        </div>
+
+        <div class="col-3">
+          <p class="card-text" id="infoWheel4"></p>
+        </div>
+  
+      </div>
+  </div>
 </div>
 
 </body>
