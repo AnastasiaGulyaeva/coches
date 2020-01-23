@@ -1,6 +1,6 @@
 "use strict";
 var userCar;
-// добавить машину
+// añadir nuevo coche
 function createCar() {
     var plate = document.getElementById("plate").value;
     var expresion = /^[0-9]{4}[a-zA-Z]{3}$/;
@@ -22,7 +22,7 @@ function createCar() {
         return;
     }
 }
-// скрыть/показать анкету
+// ocultar/mostrar formulario
 function showWheelForm() {
     var carForm = document.getElementById("carForm");
     var carWheel = document.getElementById("wheelform");
@@ -35,7 +35,7 @@ function showWheelResult() {
     var cardWheel = document.getElementById("cardWheel");
     cardWheel.classList.remove("d-none");
 }
-// добавить колеса
+// añadir ruedas
 function createWheel() {
     var error = 0;
     for (var i = 1; i < 5; i++) {
@@ -47,14 +47,6 @@ function createWheel() {
                 " tiene que ser mas que 0.4 y menos que 2.");
             error++;
         }
-        // if (!(diameter > 0.4 && diameter < 2)) {
-        //   alert(
-        //     "El diamertro de la rueda " +
-        //       i +
-        //       " tiene que ser mas que 0.4 y menos que 2."
-        //   );
-        //   error++;
-        // }
     }
     if (error == 0) {
         for (var i = 1; i < 5; i++) {
@@ -89,7 +81,7 @@ function createWheel() {
             " Diameter: " +
             userCar.wheels[3].diameter;
 }
-// функция проверки
+// comprobar las ruedas
 function validar(diameter) {
     if (diameter > 0.4 && diameter < 2) {
         return true;
@@ -98,90 +90,3 @@ function validar(diameter) {
         return false;
     }
 }
-/*
-
-
-
-let plateSymbol: any = plate.split("");
-
-_____________ не работает
- 
-    if (plateSymbol.length < 8) {
-      for (let i = 0; i < plateSymbol.length; i++) {
-      if (!isNaN(plateSymbol.slice(0, 3)) && isNaN(plateSymbol.slice(4, 6))) {
-        break;
-      } else {
-        alert("Matricula tiene que mantener 4 numeros y 3 letras");
-      }
-    } else {
-      alert("Matricula no puede tener mas que 7 simbolos!");
-      break;
-    }
-  }
-experession regular
-
-______________ работает. Нужно ли?
-
-if (plateSymbol.length < 8) {
-      alert("ok");
-      
-    } else {
-      alert("Matricula no puede tener mas que 7 simbolos!");
-    }
-
-_______________ работает, но усложнила.
-
-    function matricula() {
-  let plate = (<HTMLInputElement>document.getElementById("plate")).value;
-
-  let countNum = 0;
-  let countLetra = 0;
-
-  let plateSymbols: any = plate.split("");
-
-  for (let plateSymbol of plateSymbols) {
-    if (!isNaN(plateSymbol)) {
-      alert("numero");
-      countNum++;
-    } else {
-      alert("letra");
-      countLetra++;
-    }
-  }
-}
-
-
-________ посл вариант
-
-let count = 0;
-
-  for (let i = 1; i < 5; i++) {
-    let diameter = (<HTMLInputElement>document.getElementById("diameter" + i))
-      .valueAsNumber;
-    let brand = (<HTMLInputElement>document.getElementById("brand" + i)).value;
-
-    if (diameter > 0.4 && diameter < 2) {
-      count++;
-        if(count == 4) {
-      userCar.addWheel(new Wheel(diameter, brand)); // [i] para subir los 4 ruedas?
-    }
-
-      (<HTMLInputElement>document.getElementById("infoWheel")).innerText =
-        "WHEELS: " + JSON.stringify(userCar.wheels);
-    } else {
-      alert(`El diametro de la rueda ${i} no es correcto.`);
-    }
-  }
-  (<HTMLInputElement>document.getElementById("infoWheel")).innerText =
-        "WHEELS: " + JSON.stringify(userCar.wheels);
-
-        funcion validar (diameter:number) {
-         if (diameter > 0.4 && diameter < 2) {
-           return true;
-         } else {
-           return false;
-         }
-
-        }
-
-*/
