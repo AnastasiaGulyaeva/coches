@@ -26,8 +26,14 @@ function createCar() {
 function showWheelForm() {
     var carForm = document.getElementById("carForm");
     var carWheel = document.getElementById("wheelform");
+    var cardCar = document.getElementById("cardCar");
     carForm.classList.add("d-none");
     carWheel.classList.remove("d-none");
+    cardCar.classList.remove("d-none");
+}
+function showWheelResult() {
+    var cardWheel = document.getElementById("cardWheel");
+    cardWheel.classList.remove("d-none");
 }
 // добавить колеса
 function createWheel() {
@@ -35,12 +41,20 @@ function createWheel() {
     for (var i = 1; i < 5; i++) {
         var diameter = document.getElementById("diameter" + i)
             .valueAsNumber;
-        if (!(diameter > 0.4 && diameter < 2)) {
+        if (!validar(diameter)) {
             alert("El diamertro de la rueda " +
                 i +
                 " tiene que ser mas que 0.4 y menos que 2.");
             error++;
         }
+        // if (!(diameter > 0.4 && diameter < 2)) {
+        //   alert(
+        //     "El diamertro de la rueda " +
+        //       i +
+        //       " tiene que ser mas que 0.4 y menos que 2."
+        //   );
+        //   error++;
+        // }
     }
     if (error == 0) {
         for (var i = 1; i < 5; i++) {
@@ -52,6 +66,7 @@ function createWheel() {
         }
     }
     // imprimir los resultados de wheels
+    showWheelResult();
     document.getElementById("wheel").innerText = "Wheels: ";
     document.getElementById("infoWheel1").innerText =
         "Wheel 1 : Brand: " +
@@ -74,14 +89,15 @@ function createWheel() {
             " Diameter: " +
             userCar.wheels[3].diameter;
 }
-// функция для проверки
-// function validateDiameter (a: number){
-//   if (a > 0.4 && a < 2) {
-//   } else {
-//     alert ("Error");
-//     error++;
-//   }
-// }
+// функция проверки
+function validar(diameter) {
+    if (diameter > 0.4 && diameter < 2) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
 /*
 
 

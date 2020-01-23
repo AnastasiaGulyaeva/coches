@@ -31,10 +31,16 @@ function createCar() {
 function showWheelForm() {
   const carForm = <HTMLInputElement>document.getElementById("carForm");
   const carWheel = <HTMLInputElement>document.getElementById("wheelform");
+  const cardCar = <HTMLInputElement>document.getElementById("cardCar");
   carForm.classList.add("d-none");
   carWheel.classList.remove("d-none");
+  cardCar.classList.remove("d-none");
 }
 
+function showWheelResult() {
+  const cardWheel = <HTMLInputElement>document.getElementById("cardWheel");
+  cardWheel.classList.remove("d-none");
+}
 // добавить колеса
 
 function createWheel() {
@@ -43,7 +49,8 @@ function createWheel() {
   for (let i = 1; i < 5; i++) {
     let diameter = (<HTMLInputElement>document.getElementById("diameter" + i))
       .valueAsNumber;
-    if (!(diameter > 0.4 && diameter < 2)) {
+
+    if (!validar(diameter)) {
       alert(
         "El diamertro de la rueda " +
           i +
@@ -51,6 +58,15 @@ function createWheel() {
       );
       error++;
     }
+
+    // if (!(diameter > 0.4 && diameter < 2)) {
+    //   alert(
+    //     "El diamertro de la rueda " +
+    //       i +
+    //       " tiene que ser mas que 0.4 y menos que 2."
+    //   );
+    //   error++;
+    // }
   }
 
   if (error == 0) {
@@ -65,6 +81,7 @@ function createWheel() {
   }
 
   // imprimir los resultados de wheels
+  showWheelResult();
 
   (<HTMLInputElement>document.getElementById("wheel")).innerText = "Wheels: ";
 
@@ -93,16 +110,15 @@ function createWheel() {
     userCar.wheels[3].diameter;
 }
 
-// функция для проверки
+// функция проверки
 
-// function validateDiameter (a: number){
-//   if (a > 0.4 && a < 2) {
-//   } else {
-//     alert ("Error");
-//     error++;
-//   }
-
-// }
+function validar(diameter: number) {
+  if (diameter > 0.4 && diameter < 2) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 /* 
 
