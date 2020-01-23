@@ -41,7 +41,7 @@ function showWheelResult() {
   const cardWheel = <HTMLInputElement>document.getElementById("cardWheel");
   cardWheel.classList.remove("d-none");
 }
-// добавить колеса
+// añadir ruedas
 
 function createWheel() {
   let error = 0;
